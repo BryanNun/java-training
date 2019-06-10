@@ -126,11 +126,12 @@ public class ArrayTraining {
      * @return array where all words are capitalized, ie: {"Sample", "Value"}
      */
     public String[] capitalize(String[] array) {
-        for(int i=0;i<array.length;i++){
-            array[i] = StringTraining.capitalize(array[i]);
+
+        for(int i = 0; i < array.length; i++){
+            array[i] = array[i].substring(0, 1).toUpperCase() + array[i].substring(1);
         }
-        return array;
-    }
+            return array;
+        }
 
     /**
      * @param first,  ie: {1, 2, 3}
