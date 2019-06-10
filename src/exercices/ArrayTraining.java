@@ -26,8 +26,10 @@ public class ArrayTraining {
      */
     public int[] intArray(int a, int b, int c) {
 
-        int[] resultats = {a, b, c};
-        return resultats;
+        int[] solution = {a, b, c};
+
+        return solution;
+        
     }
 
     /**
@@ -38,8 +40,10 @@ public class ArrayTraining {
      * ie: {"test", sample", "value"}
      */
     public String[] stringArray(String a, String b, String c) {
-        String[] resultats = {a, b , c};
-        return resultats;
+
+        String[] solution = {a, b , c};
+
+        return solution;
     }
 
     /**
@@ -47,6 +51,7 @@ public class ArrayTraining {
      * @return length of the array, ie: 1
      */
     public int length(int[] array) {
+
         return array.length;
     }
 
@@ -65,7 +70,7 @@ public class ArrayTraining {
      */
     public int lastValue(int[] array) {
 
-        return array[2];
+        return array[length(array) - 1];
     }
 
     /**
@@ -87,6 +92,7 @@ public class ArrayTraining {
     public int[] replace(int[] array, int value, int position) {
 
         array[position] = value;
+
         return array;
     }
 
@@ -96,11 +102,15 @@ public class ArrayTraining {
      */
     public int sum(int[] array) {
 
-        int total = 0;
-        for(int i= 0; i<length(array);i++){
-            total += array[i];
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+
+            count += array[i];
+            
         }
-        return total;
+
+        return count;
     }
 
     /**
@@ -109,16 +119,16 @@ public class ArrayTraining {
      * @return if array contains searched value, ie: true
      */
     public boolean contains(int[] array, int search) {
-        boolean found=false;
-        int iter=0;
-        int length = length(array);
-        while(iter<length && !found){
-            if(array[iter]==search){
-                found=true;
+
+        for (int i = 0; i < array.length; i++) {
+
+            if (array[i] == search) {
+
+                return true;
             }
-            iter++;
         }
-        return found;
+
+        return false;
     }
 
     /**
@@ -127,11 +137,13 @@ public class ArrayTraining {
      */
     public String[] capitalize(String[] array) {
 
-        for(int i = 0; i < array.length; i++){
+        for (int i = 0; i < array.length; i++) {
+
             array[i] = array[i].substring(0, 1).toUpperCase() + array[i].substring(1);
         }
-            return array;
-        }
+
+        return array;
+    }
 
     /**
      * @param first,  ie: {1, 2, 3}
@@ -140,16 +152,22 @@ public class ArrayTraining {
      * are equals, ie: false
      */
     public boolean equals(int[] first, int[] second) {
-        boolean same = true;
+
+        boolean isSame = true;
         int length = length(first);
-        int iter=0;
-        while(same && iter<length){
-            if(first[iter]!=second[iter]){
-                same=false;
+        int index = 0;
+
+        while(isSame && (index<length)) {
+
+            if (first[index] != second[index]) {
+
+                return false;
             }
-            iter++;
+
+            index++;
         }
-        return same;
+
+        return isSame;
     }
 
     /**
@@ -157,13 +175,16 @@ public class ArrayTraining {
      * @return array with reversed values, ie: {3, 2, 1}
      */
     public int[] reverse(int[] array) {
+
         int temp;
-        for(int i = 0; i < array.length / 2; i++)
-        {
-            temp = array[i];
+
+        for (int i = 0; i < array.length / 2; i++) { 
+
+            temp = array[i]; 
             array[i] = array[array.length - i - 1];
             array[array.length - i - 1] = temp;
         }
+
         return array;
     }
 
@@ -174,15 +195,22 @@ public class ArrayTraining {
      * ie: {1, 2, 3, 4, 5}
      */
     public int[] concat(int[] first, int[] second) {
+
         int firstLength = length(first);
         int secondLength = length(second);
-        int[] both = new int [firstLength+secondLength];
-        for(int i=0; i < firstLength ; i++){
-            both[i]=first[i];
+        int[] both = new int [firstLength + secondLength];
+
+        for (int i = 0; i < firstLength; i++) {
+
+            both[i] = first[i];
         }
-        for(int i=0; i<secondLength;i++){
-            both[i+firstLength]=second[i];
+
+        for (int i = 0; i < secondLength; i++) {
+
+            both[i + firstLength] = second[i];
         }
-        return both; 
+
+        return both;
+
     }
 }
