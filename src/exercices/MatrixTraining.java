@@ -87,13 +87,15 @@ public class MatrixTraining {
      * @return sum of matrix values, ie: 21
      */
     public int sum(int[][] matrix) {
-        int total=0;
-        ArrayTraining arrayT = new ArrayTraining();
-        for( int[] item : matrix){
-            total += arrayT.sum(item);
+
+        int result = 0;
+         for(int i = 0; i < matrix.length; i++){
+             for(int j = 0; j < matrix[i].length; j++){
+                result = result + matrix[i][j];
+            }
+        }        
+        return result;
         }
-        return total;
-    }
 
     /**
      * @param matrix, ie: {{1, 2, 3}, {4, 5, 6}}
@@ -101,16 +103,16 @@ public class MatrixTraining {
      * @return if matrix contains searched value, ie: true
      */
     public boolean contains(int[][] matrix, int search) {
-        boolean found=false;
-        int iter=0;
-        int length = matrix.length;
-        ArrayTraining arrayT = new ArrayTraining();
-        while(iter<length && !found){
-            found=arrayT.contains(matrix[iter], search);
-            iter++;
+        boolean contains = false;
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[i].length; j++){
+                if(search == matrix[i][j]){
+                    contains = true;			
+                }
+            }
         }
-        return found;
-    }
+            return contains;
+        }
 
     /**
      * @param matrix, ie: {{1, 2, 3}, {4, 5, 6}}
